@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tシャツシミュレーション</title>
+    <style>
+        .tshirt-container {
+            position: relative;
+            width: 1000px;
+            /* Tシャツの画像に合わせて調整してください */
+            margin: auto;
+        }
+
+        .tshirt-image {
+            width: 100%;
+            display: block;
+        }
+
+        .overlay-image {
+            position: absolute;
+            top: 50%;
+            /* Tシャツの画像に合わせて調整してください */
+            left: 50%;
+            /* Tシャツの画像に合わせて調整してください */
+            transform: translate(-50%, -50%);
+            max-width: 70%;
+            /* Tシャツの画像に応じて調整してください */
+            max-height: 70%;
+            /* Tシャツの画像に応じて調整してください */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tshirt-container">
+        <!-- Tシャツのベース画像 -->
+        <img src="tshirt.png" alt="T-Shirt" class="tshirt-image">
+
+        <!-- Tシャツに重ねる画像 -->
+        <img src="combined_image.jpg" alt="Overlay Image" class="overlay-image">
+    </div>
+</body>
+
+</html>

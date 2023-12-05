@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tシャツシミュレーション</title>
+    <link rel="shortcut icon" href="icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="icon.png" />
     <style>
         .tshirt-container {
             position: relative;
@@ -46,32 +48,30 @@
         <form id="tshirtForm">
             <div>
                 <label for="title">タイトル:</label>
-                <input type="text" id="title" name="title">
+                <input type="text" id="title" name="title" required>
             </div>
             <div>
                 <label for="userid">ユーザーID:</label>
-                <input type="text" id="userid" name="userid">
+                <input type="text" id="userid" name="userid" required>
             </div>
             <div>
                 <label for="token">トークン:</label>
-                <input type="text" id="token" name="token">
+                <input type="text" id="token" name="token" required>
             </div>
             <button type="button" onclick="generateTshirt()">Tシャツ生成</button>
         </form>
     </div>
 
-    <div class="tshirt-container">
-        <img src="tshirt.png" alt="T-Shirt" class="tshirt-image">
-        <img src="combined_image.jpg" alt="Overlay Image" class="overlay-image">
+    <div class="form-container">
+        <button id="downloadBtn" style="display: none;" onclick="downloadImage()">画像をダウンロード</button>
     </div>
 
-    <script>
-        function generateTshirt() {
-            // ここにTシャツを生成するためのJavaScriptコードを実装します。
-            // 例: フォームのデータをサーバーに送信する、画像を更新するなど。
-            alert('Tシャツが生成されました！');
-        }
-    </script>
+    <div class="tshirt-container">
+        <img src="img/tshirt.png" alt="T-Shirt" class="tshirt-image">
+        <img src="img/symbol_01.png" alt="Overlay Image" class="overlay-image">
+    </div>
+
+    <script src="app/index.js" type="text/javascript"></script>
 </body>
 
 </html>

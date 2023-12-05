@@ -6,6 +6,9 @@ function generateTshirt() {
 
   const apiUrl = `${url}?user_id=${userId}&title=${title}&token=${token}`;
 
+  // ローディングインジケーターを表示
+  showLoader();
+
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
@@ -14,12 +17,14 @@ function generateTshirt() {
         const base64ImageString = data.results[0];
         const imageDataURI = "data:image/jpeg;base64," + base64ImageString;
         document.querySelector(".overlay-image").src = imageDataURI;
-        showDownloadButton(); 
+        showDownloadButton();
       } else {
         // Handle error messages
         console.error("Error messages:", data.messages);
         alert(data.messages);
       }
+
+      hideLoader();
     })
     .catch((error) => {
       console.error(
@@ -52,3 +57,28 @@ function downloadImage() {
 function showDownloadButton() {
   document.getElementById("downloadBtn").style.display = "block";
 }
+
+function showLoader() {
+  document.getElementById("loading").style.display = "flex"; // ローダーを表示
+}
+
+function hideLoader() {
+  document.getElementById("loading").style.display = "none"; // ローダーを非表示
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("title").addEventListener("input", function () {
+    var value = this.value;
+    var newLength = 0;
+    var allowedLength = 20; // 半角20文字（全角10文字）
+
+    for (var i = 0; i < value.length; i++) {
+      // 全角文字は2文字分としてカウント
+      newLength += value.charCodeAt(i) > 255 ? 2 : 1;
+      if (newLength > allowedLength) {
+        this.value = value.substr(0, i);
+        break;
+      }
+    }
+  });
+});

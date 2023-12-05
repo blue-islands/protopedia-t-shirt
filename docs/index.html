@@ -8,8 +8,7 @@
     <style>
         .tshirt-container {
             position: relative;
-            width: 1000px;
-            /* Tシャツの画像に合わせて調整してください */
+            width: 600px;
             margin: auto;
         }
 
@@ -21,26 +20,58 @@
         .overlay-image {
             position: absolute;
             top: 50%;
-            /* Tシャツの画像に合わせて調整してください */
             left: 50%;
-            /* Tシャツの画像に合わせて調整してください */
             transform: translate(-50%, -50%);
-            max-width: 70%;
-            /* Tシャツの画像に応じて調整してください */
-            max-height: 70%;
-            /* Tシャツの画像に応じて調整してください */
+            max-width: 40%;
+            /* 画像のサイズを40%に調整 */
+            max-height: 40%;
+            /* 画像のサイズを40%に調整 */
+        }
+
+        .form-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        input,
+        button {
+            margin: 10px 0;
         }
     </style>
 </head>
 
 <body>
-    <div class="tshirt-container">
-        <!-- Tシャツのベース画像 -->
-        <img src="tshirt.png" alt="T-Shirt" class="tshirt-image">
+    <div class="form-container">
+        <h2>ProtoPedia 作品Tシャツ ジェネレータ</h2>
+        <form id="tshirtForm">
+            <div>
+                <label for="title">タイトル:</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div>
+                <label for="userid">ユーザーID:</label>
+                <input type="text" id="userid" name="userid">
+            </div>
+            <div>
+                <label for="token">トークン:</label>
+                <input type="text" id="token" name="token">
+            </div>
+            <button type="button" onclick="generateTshirt()">Tシャツ生成</button>
+        </form>
+    </div>
 
-        <!-- Tシャツに重ねる画像 -->
+    <div class="tshirt-container">
+        <img src="tshirt.png" alt="T-Shirt" class="tshirt-image">
         <img src="combined_image.jpg" alt="Overlay Image" class="overlay-image">
     </div>
+
+    <script>
+        function generateTshirt() {
+            // ここにTシャツを生成するためのJavaScriptコードを実装します。
+            // 例: フォームのデータをサーバーに送信する、画像を更新するなど。
+            alert('Tシャツが生成されました！');
+        }
+    </script>
 </body>
 
 </html>

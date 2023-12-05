@@ -25,14 +25,21 @@
             left: 50%;
             transform: translate(-50%, -50%);
             max-width: 40%;
-            /* 画像のサイズを40%に調整 */
             max-height: 40%;
-            /* 画像のサイズを40%に調整 */
         }
 
         .form-container {
             text-align: center;
             margin: 20px 0;
+        }
+
+        .download-container {
+            display: flex;
+            /* 水平方向の中央揃え */
+            justify-content: center;
+            /* 垂直方向の中央揃え */
+            align-items: center;
+            margin: 10px 0;
         }
 
         input,
@@ -44,8 +51,8 @@
 
 <body>
     <div class="form-container">
-        <h2>ProtoPedia 作品Tシャツ ジェネレータ</h2>
         <form id="tshirtForm">
+            <h2>ProtoPedia 作品Tシャツ ジェネレータ</h2>
             <div>
                 <label for="title">タイトル:</label>
                 <input type="text" id="title" name="title" required>
@@ -54,15 +61,12 @@
                 <label for="userid">ユーザーID:</label>
                 <input type="text" id="userid" name="userid" required>
             </div>
-            <div>
-                <label for="token">トークン:</label>
-                <input type="text" id="token" name="token" required>
-            </div>
             <button type="button" onclick="generateTshirt()">Tシャツ生成</button>
+            <input type="hidden" id="token" name="token" value="e8beabf47776780ea8fb42abbd0ce325">
         </form>
     </div>
 
-    <div class="form-container">
+    <div class="download-container">
         <button id="downloadBtn" style="display: none;" onclick="downloadImage()">画像をダウンロード</button>
     </div>
 

@@ -21,7 +21,7 @@ function generateTshirt() {
       } else {
         // Handle error messages
         console.error("Error messages:", data.messages);
-        alert("作品の件数が8件以上必要です。");
+        alert(data.messages);
       }
 
       hideLoader();

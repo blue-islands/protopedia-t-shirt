@@ -2,7 +2,8 @@ function generateTshirt() {
   const userId = encodeURIComponent(document.getElementById("userid").value);
   const title = encodeURIComponent(document.getElementById("title").value);
   const token = encodeURIComponent(document.getElementById("token").value);
-  const url = "https://livlog.xyz/webapi/protopedia/tgenerator";
+  // const url = "https://livlog.xyz/webapi/protopedia/tgenerator";
+  const url = "http://localhost:8080/webapi/protopedia/tgenerator";
 
   const apiUrl = `${url}?user_id=${userId}&title=${title}&token=${token}`;
 
@@ -12,7 +13,7 @@ function generateTshirt() {
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
-      if (data.status === 0 && data.results.length > 0) {
+      if (data.results != null && data.results.length > 0) {
         // Convert Base64 data to a data URI and update the overlay image
         const base64ImageString = data.results[0];
         const imageDataURI = "data:image/jpeg;base64," + base64ImageString;
